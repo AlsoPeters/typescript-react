@@ -14,17 +14,44 @@ type Props = {
 };
 
 export default function SingleTodo({ todos, todo, setTodos }: Props) {
+  function handleDone(id: number) {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, isDone: !todo.isDone } : todo
+      )
+    );
+  }
+
+  function handleDelete(id: number) {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  }
+
   return (
     <form className='flex max-w-full gap-2 px-4 py-2 my-4 border-2 rounded-sm border-neutral-900'>
-      <span className='w-full font-bold'>{todo.todo}</span>
+      {todo.isDone ? (
+        <s className='w-full text-neutral-500'>{todo.todo}</s>
+      ) : (
+        <span className='w-full font-bold'>{todo.todo}</span>
+      )}
+
       <div className='flex items-center justify-end gap-4 ml-8'>
-        <span>
+        <span className='hover:text-yellow-500'>
           <RiEditFill />
         </span>
-        <span>
+        <span
+          onClick={() => {
+            handleDelete(todo.id);
+          }}
+          className='hover:text-red-600'
+        >
           <RiDeleteBin2Fill />
         </span>
-        <span>
+        <span
+          onClick={() => {
+            handleDone(todo.id);
+          }}
+          className='hover:text-green-500'
+        >
           <RiCheckboxCircleFill />
         </span>
       </div>
