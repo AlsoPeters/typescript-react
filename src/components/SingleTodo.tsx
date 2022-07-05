@@ -52,12 +52,12 @@ export default function SingleTodo({ todos, todo, setTodos }: Props) {
       {edit ? (
         <input
           ref={inputRef}
-          className='px-2 bg-yellow-100'
+          className='px-2 rounded-sm bg-zinc-200'
           value={editTodo}
           onChange={(e) => setEditTodo(e.target.value)}
         />
       ) : todo.isDone ? (
-        <s className='w-full text-neutral-500'>{todo.todo}</s>
+        <s className='w-full text-green-200'>{todo.todo}</s>
       ) : (
         <span className='w-full font-bold'>{todo.todo}</span>
       )}
@@ -69,7 +69,7 @@ export default function SingleTodo({ todos, todo, setTodos }: Props) {
               setEdit(!edit);
             }
           }}
-          className='hover:text-yellow-500'
+          className='hover:text-yellow-200'
         >
           <RiEditFill />
         </span>
@@ -77,7 +77,7 @@ export default function SingleTodo({ todos, todo, setTodos }: Props) {
           onClick={() => {
             handleDelete(todo.id);
           }}
-          className='hover:text-red-600'
+          className='hover:text-rose-300'
         >
           <RiDeleteBin2Fill />
         </span>
@@ -85,7 +85,7 @@ export default function SingleTodo({ todos, todo, setTodos }: Props) {
           onClick={() => {
             handleDone(todo.id);
           }}
-          className='hover:text-green-500'
+          className='hover:text-green-200'
         >
           <RiCheckboxCircleFill />
         </span>

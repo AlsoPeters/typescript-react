@@ -20,7 +20,7 @@ export default function InputField({ todo, setTodo, handleAdd }: Props) {
         ref={inputRef}
         value={todo}
         onChange={(e) => setTodo(e.target.value)}
-        className='w-full px-2 py-1 pr-20 border-2 rounded-sm border-neutral-800'
+        className='w-full px-2 py-1 pr-20 border-2 rounded-sm focus:drop-shadow-2xl bg-neutral-300 border-neutral-800'
         type='input'
         placeholder='Enter a task'
       />

@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import InputField from '../components/InputField';
 import TodoList from '../components/TodoList';
 import { Todo } from '../model';
+import Mastiff from '../../public/Mastiff.svg';
 
 const Home: NextPage = () => {
   const [todo, setTodo] = useState<string>('');
@@ -29,8 +30,11 @@ const Home: NextPage = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <div className='flex flex-col items-center justify-center border-2'>
-        <p className='text-6xl font-bold'>Taskif</p>
+      <div className='flex flex-col items-center justify-center h-screen gap-4'>
+        <div className='w-40'>
+          <Mastiff />
+        </div>
+        <p className='text-6xl font-bold'>Taskiff</p>
         <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
         <TodoList todos={todos} setTodos={setTodos} />
       </div>
